@@ -1,0 +1,283 @@
+:root {
+  --text: black;
+  --text-h: black;
+  --bg: beige;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: black;
+    --text-h: black;
+    --bg: beige;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  flex: 1;
+}
+
+.contact-form-info, .contact-form-message {
+  background-color: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.contact-form-info {
+  background-color: white;
+  color: black;
+  width: 15vw;
+}
+
+.contact-form-message {
+  height: 5em;
+  background-color: white;
+  color: black;
+  font-family: Arial;
+  resize: vertical horizontal;
+}
+
+.contact-button {
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+header {
+  justify-content: center;
+  line-height: 50px;
+  margin-top: 1.5vw;
+  margin-bottom: 2.5vw;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  background-color: beige;
+}
+
+.merch {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.site-background {
+  background-color: #f3f4f6;
+  width: 250px;
+  border: solid 1px white;
+}
+
+.video-backgroud {
+  width: 100%;
+  height: 100vh;
+}
+
+.react-player {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: auto;
+  display: block;
+  text-align: center;
+}
+
+.react-player-regular {
+  display: inline-block;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  overflow: hidden;
+}
+
+.spotify {
+  color: #1db954;
+}
+
+.instagram {
+  color: #E1306C;
+}
+
+.youtube {
+  color: #FF0000;
+}
+
+.tiktok {
+  color: #FE2C55;
+}
+
+.soundcloud {
+  color: #FF5500;
+}
+
+.apple-music {
+  color: #FA243C;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;   
+}
+
+.social-links a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  transform: scale(1);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.social-links:hover a {
+  opacity: 0.6;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+.social-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-bar a {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(1);
+  color: black;
+  margin-left: 5.5vw;
+  font-size: 50px;
+  flex-wrap: wrap;
+  opacity: 0.8;
+}
+
+.nav-bar:hover a {
+  opacity: 0.6;
+}
+
+.nav-bar a:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
