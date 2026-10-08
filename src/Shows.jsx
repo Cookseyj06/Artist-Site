@@ -21,9 +21,9 @@ function Shows() {
     return <p>No Upcoming Shows at this Time</p>
   }
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-      <ul style={{fontWeight: 'bold', listStyleType: 'none', gap: '3vw', display: 'flex', flexDirection: 'column'}}>
-        {events.map((event) => <li style={{ display: 'grid', gridTemplateColumns: 'minmax(80px, 12vw) minmax(150px, 20vw) minmax(150px, 20vw)', textAlign: 'left' }} key={event.id}>
+      <div className="shows-container">
+      <ul className="shows-list">
+        {events.map((event) => <li className="show-item" key={event.id}>
           <span>{event.date}</span>
           <span>{event.location}</span>
           <span>{event.city}, {event.state}</span>

@@ -38,8 +38,8 @@ function Contact() {
   return ( 
   <div>
   <h1>Contact Alex</h1>
-  <div style={{display: 'flex', justifyContent: 'center'}}>
-   <form onSubmit={handleSubmit} style={{fontWeight: 'bold', listStyleType: 'none', gap: '1vw', display: 'flex', flexDirection: 'column', width: '35%', height: '100%'}}>
+  <div className="contact-form-container">
+   <form onSubmit={handleSubmit} className="contact-form">
             <input className="contact-form-info" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
             <input className="contact-form-info" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
             <textarea className="contact-form-message" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Type message here" />

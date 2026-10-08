@@ -8,13 +8,10 @@
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
@@ -24,8 +21,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  :root {
     font-size: 16px;
   }
 }
@@ -41,12 +40,7 @@
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 }
 
@@ -57,13 +51,12 @@ body {
 
 #root {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   border-inline: 1px solid var(--border);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 0;
   box-sizing: border-box;
 }
 
@@ -71,30 +64,10 @@ main {
   flex: 1;
 }
 
-.contact-form-info, .contact-form-message {
-  background-color: white;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-.contact-form-info {
-  background-color: white;
-  color: black;
-  width: 15vw;
-}
-
-.contact-form-message {
-  height: 5em;
-  background-color: white;
-  color: black;
-  font-family: Arial;
-  resize: vertical horizontal;
-}
-
-.contact-button {
-  color: white;
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -108,35 +81,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  margin-top: 1.5vw;
-  margin-bottom: 1.5vw;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  margin: 1.5vw 0;
 }
+
 p {
   margin: 0;
 }
 
-code,
-.counter {
+code {
   font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
   color: var(--text-h);
-}
-
-code {
   font-size: 15px;
   line-height: 135%;
   padding: 4px 8px;
@@ -160,6 +122,93 @@ footer {
   background-color: beige;
 }
 
+.home-page {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.video-player {
+  position: relative;
+  width: 640px;
+  height: 390px;
+}
+
+.video-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.video-control-button {
+  pointer-events: auto;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(199, 189, 189, 0.6);
+  color: #000000;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.home-social-links {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form {
+  font-weight: bold;
+  list-style-type: none;
+  gap: 1vw;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 100%;
+}
+
+.contact-form-info,
+.contact-form-message {
+  background-color: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.contact-form-info {
+  width: 15vw;
+}
+
+.contact-form-message {
+  height: 5em;
+  font-family: Arial;
+  resize: vertical horizontal;
+}
+
+.contact-button {
+  color: white;
+}
+
 .merch {
   list-style-type: none;
   display: flex;
@@ -168,34 +217,17 @@ footer {
   flex-wrap: wrap;
 }
 
-.site-background {
-  background-color: #f3f4f6;
-  width: 250px;
-  border: solid 1px white;
+.merch-image {
+  width: 200px;
+  border-radius: 8px;
 }
 
-.video-backgroud {
-  width: 100%;
-  height: 100vh;
-}
-
-.react-player {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.video-wrapper {
-  width: 100%;
-  height: auto;
-  display: block;
-  text-align: center;
-}
-
-.react-player-regular {
-  display: inline-block;
-  margin: 0 auto;
-  border: 2px solid #ccc;
-  overflow: hidden;
+.merch-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .spotify {
@@ -225,7 +257,7 @@ footer {
 .social-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;   
+  gap: 12px;
 }
 
 .social-links a {
@@ -245,6 +277,42 @@ footer {
   opacity: 1;
   text-decoration: underline;
   transform: scale(1.1);
+}
+
+.shows-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.shows-list {
+  font-weight: bold;
+  list-style-type: none;
+  gap: 3vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-item {
+  display: grid;
+  grid-template-columns: minmax(80px, 12vw) minmax(150px, 20vw) minmax(150px, 20vw);
+  text-align: left;
+}
+
+.admin-shows-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-weight: bold;
+  list-style-type: none;
+  gap: 3vw;
+  flex-direction: column;
+}
+
+.admin-show-item {
+  display: grid;
+  grid-template-columns: 40px minmax(80px, 12vw) minmax(150px, 20vw) minmax(150px, 20vw);
+  text-align: left;
 }
 
 .social-row {
@@ -276,8 +344,13 @@ footer {
   opacity: 1;
 }
 
-.app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }

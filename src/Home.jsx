@@ -26,66 +26,29 @@ function Home() {
     setCurrentSong(songIds[previousIndex]);
   }
 
-  const overlayButtonStyle = {
-    pointerEvents: 'auto',
-    width: '45px',
-    height: '45px',
-    borderRadius: '50%',
-    border: 'none',
-    backgroundColor: 'rgba(199, 189, 189, 0.6)', 
-    color: '#000000',
-    fontSize: '20px',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
-  };
-
-  
-
   return (
-    <div style={{
-        width: '100%',
-        display: 'grid',
-        placeItems: 'center',
-        marginBottom: '20px',
-        boxSizing: 'border-box'
-    }}>
+    <div className="home-page">
       
       <h2>
         Latest Releases
       </h2>
       
-      <div style={{
-        position: 'relative',
-        width: '640px',
-        height: '390px'
-      }}>
+      <div className="video-player">
         
         <YouTube 
         key={currentSong} videoId={currentSong} opts={opts} />
       
-        <div style={{position: 'absolute',
-          top: '50%',
-          left: '0',
-          width: '100%',
-          transform: 'translateY(-50%)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '0 10px',
-          boxSizing: 'border-box',
-          pointerEvents: 'none'}}>
+        <div className="video-controls">
         
           <button type="button" 
             onClick={handlePrevious}
-            style={overlayButtonStyle}>
+            className="video-control-button">
             &#10094;
           </button>
         
           <button type="button" 
             onClick={handleNext}
-            style={overlayButtonStyle}>
+            className="video-control-button">
             &#10095;
           </button>
         
@@ -97,7 +60,7 @@ function Home() {
         Follow Me
       </h2>
 
-      <div style={{fontSize: '25px', marginBottom: '20px'}}>
+      <div className="home-social-links">
         <Streaming rows />
       </div>
 

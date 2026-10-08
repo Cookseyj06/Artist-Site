@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import './index.css';
 
 function MerchCard({product}) {
 
@@ -8,11 +7,14 @@ function MerchCard({product}) {
     return (
         <article>
             <h2>{product.item}</h2>
-            <img src={currentImage} alt={product.description} style={{width: '200px', borderRadius: '8px'}}/>
+            <img className="merch-image" src={currentImage} alt={product.description}/>
             <p></p>
             {product.colors?.map((color) => 
-                <button key={color.key} 
-                    style={{backgroundColor: color.name, width: '20px', height: '20px', borderRadius: '50%', margin: '5px', cursor: 'pointer'}} onClick={() => setCurrentImage(color.image)}>
+                <button
+                    key={color.key}
+                    className="merch-color"
+                    style={{ backgroundColor: color.name }}
+                    onClick={() => setCurrentImage(color.image)}>
                 </button>)}
                 <p>Price: {product.price}</p>
                 <p>Stock: {(product.stock) > 0 ? (product.stock) : "Out of Stock"}</p>

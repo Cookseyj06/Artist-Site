@@ -137,22 +137,10 @@ function DeleteShows( {events, checked, handleCheckbox, setChecked, onEventsDele
     
 
     return (
-    <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            width: '100%',
-            fontWeight: 'bold', 
-            listStyleType: 'none', 
-            gap: '3vw', 
-            flexDirection: 'column' }}>
+    <div className="admin-shows-container">
             <form onSubmit={handleDeleteSubmit}>
                 {events.map((event) => (
-                    <label key={event.id} 
-                        style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: '40px minmax(80px, 12vw) minmax(150px, 20vw) minmax(150px, 20vw)', 
-                        textAlign: 'left' }}
-                    >
+                    <label key={event.id} className="admin-show-item">
                         <input type="checkbox"
                         checked={checked.includes(event.id)} 
                         onChange={() => handleCheckbox(event.id)}/>
